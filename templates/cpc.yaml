@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloud-provider-config
+  namespace: openshift-config
+  annotations:
+    argocd.argoproj.io/sync-options: Prune=false
+data:
+  config:
+    {{- .Values.cloud_config | nindent 4 }}
